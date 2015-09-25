@@ -1,44 +1,22 @@
 import Immutable, {List as IList} from 'immutable';
-import { ADD_TODO, COMPLETE_TODO, DELETE_TODO, SET_VISIBILITY_FILTER } from '../actions/actions';
-import VisibilityFilters from '../constants/VisibilityFilters'
-const { SHOW_ALL } = VisibilityFilters;
+import { FETCH_POSTS_FAILURE, FETCH_POSTS_REQUEST, FETCH_TWEETS_SUCCESS, ELECT_REDDIT } from '../actions/actions';
 
 
-export function todoPage(state, action){
-  state = state.set('todos', todos(state.get('todos'), action));
-  state = state.set('visibilityFilter', visibilityFilter(state.get('visibilityFilter'), action));
 
-  return state;
-
-}
-
-export function visibilityFilter(state = SHOW_ALL, action) {
-  switch (action.type) {
-  case SET_VISIBILITY_FILTER:
-    console.log(action.filter);
-    return action.filter;
-    break;
-  default:
-    return state;
-  }
-}
-
-export function todos(state = IList(), action) {
-  switch (action.type) {
-  case DELETE_TODO:
-    console.log(state);
-    state = state.delete(action.index);
-    console.log(state);
-    break;
-  case ADD_TODO:
-   state = state.push(Immutable.fromJS({
-      text: action.text,
-      completed: false
-    }));
-    break;
-  case COMPLETE_TODO:
-    state = state.update(action.index, item => item.set('completed', true));
-    break;
+export function apiPage(state, action){
+  switch(action.type){
+    case SELECT_USER:
+      state.set("selectedReddit", action.reddit);
+      break;
+    case FETCH_POSTS_REQUEST:
+      state.set("isFetching", true);
+      break;
+    case FETCH_POSTS_FAILURE:
+      state.set("isFetching", false);
+      break;
+    case FETCH_POS:
+      state.set("isFetching", false);
+      break;
   }
   return state;
 }

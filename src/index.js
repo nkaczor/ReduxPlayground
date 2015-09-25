@@ -1,3 +1,5 @@
+import 'babel-core/polyfill';
+
 import React from 'react';
 import Router, {DefaultRoute, Route} from 'react-router'
 import { Provider } from 'react-redux';
@@ -16,7 +18,11 @@ let initialState = IMap({
   todoPage: {
   todos: IList(),
   visibilityFilter: SHOW_ALL},
-  apiPage:{}
+  apiPage:{
+    selectedReddit: '',
+    isFetching: false,
+    listOfPosts: IList()
+  }
 });
 
 

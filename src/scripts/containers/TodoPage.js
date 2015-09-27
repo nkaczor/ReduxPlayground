@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import AddTodoInput from '../components/AddTodoInput'
 import TodoList from '../components/TodoList'
 import FiltersList from '../components/FiltersList'
-import * as TodoActions from '../actions/actions';
+import * as TodoActions from '../actions/todoActions';
 import VisibilityFilters from '../constants/VisibilityFilters';
 
 const {SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED} = VisibilityFilters;
@@ -42,6 +42,7 @@ function selectTodos(todos, filter){
   }
 }
 function select(state) {
+  state=state.get("todoPage");
   return {
     visibleTodos: selectTodos(state.get("todos"), state.get("visibilityFilter")),
     visibilityFilter: state.get("visibilityFilter")

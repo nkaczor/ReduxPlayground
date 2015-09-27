@@ -10,19 +10,21 @@ import App from './containers/App';
 import ApiPage from './containers/ApiPage'
 import TodoPage from './containers/TodoPage';
 
-import { addTodo, completeTodo, setVisibilityFilter } from './actions/actions';
 import VisibilityFilters from './constants/VisibilityFilters';
 const { SHOW_ALL } = VisibilityFilters;
 
+
+
+
 let initialState = IMap({
-  todoPage: {
-  todos: IList(),
-  visibilityFilter: SHOW_ALL},
-  apiPage:{
+  todoPage: IMap({
+    todos: IList(),
+    visibilityFilter: SHOW_ALL}),
+  apiPage:IMap({
     selectedReddit: '',
     isFetching: false,
-    listOfPosts: IList()
-  }
+    posts: IList()
+  })
 });
 
 

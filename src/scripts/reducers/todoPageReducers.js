@@ -1,5 +1,5 @@
 import Immutable, {List as IList} from 'immutable';
-import { ADD_TODO, COMPLETE_TODO, DELETE_TODO, SET_VISIBILITY_FILTER } from '../actions/actions';
+import { ADD_TODO, COMPLETE_TODO, DELETE_TODO, SET_VISIBILITY_FILTER } from '../actions/todoActions';
 import VisibilityFilters from '../constants/VisibilityFilters'
 const { SHOW_ALL } = VisibilityFilters;
 

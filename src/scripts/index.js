@@ -13,7 +13,7 @@ import TodoPage from './containers/TodoPage';
 import VisibilityFilters from './constants/VisibilityFilters';
 const { SHOW_ALL } = VisibilityFilters;
 
-
+require('../styles/main.scss');
 
 
 let initialState = IMap({

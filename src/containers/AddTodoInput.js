@@ -24,18 +24,14 @@ export default class AddTodoInput extends Component {
   render() {
 
     return (
-      <div>
-      <label for="newTodo">Add new task:</label>
       <input
-       id="newTodo"
        type="text"
        placeholder={this.props.placeholder}
        autoFocus="true"
        value={this.state.text}
        onChange={this.handleChange.bind(this)}
        onKeyDown={this.handleSubmit.bind(this)} />
-       </div>
-     );
+    );
   }
 }
 

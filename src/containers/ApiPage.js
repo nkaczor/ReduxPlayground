@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Post from '../components/Post';
 import * as ApiActions from '../actions/apiActions'
 
 class ApiPage extends Component {
@@ -29,16 +28,18 @@ class ApiPage extends Component {
 
     return (
       <header>
-
       <input
        type="text"
        autoFocus="true"
        value={this.state.text}
        onChange={this.handleChange.bind(this)}
        onKeyDown={this.handleSubmit.bind(this)} />
-    
        {this.props.posts.map(post =>
-          <Post post={post}/>
+          <div>
+           <h3>{post.get('author')+": "+ post.get('title')}</h3>
+           <p>{post.get('selftext')}</p>
+           <hr/>
+         </div>
 
      )}
       </header>

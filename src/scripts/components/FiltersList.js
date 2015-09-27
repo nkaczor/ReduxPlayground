@@ -7,10 +7,11 @@ export default class FiltersList extends Component {
   render() {
 
     return (
-      <div>
-      Filtry:
+      <div className="filters">
         {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter =>
-          <Filter filter={filter} onChange={this.props.onChange} />
+          <Filter filter={filter}
+          selectedFilter={this.props.selectedFilter}
+          onChange={this.props.onChange} />
          )}
       </div>
     );

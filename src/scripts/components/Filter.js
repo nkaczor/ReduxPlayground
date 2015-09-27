@@ -11,13 +11,15 @@ export default class Filter extends Component {
 
     const filters = {
       [SHOW_ALL]: 'All',
-      [SHOW_COMPLETED]: 'Complete',
+      [SHOW_COMPLETED]: 'Completed',
       [SHOW_ACTIVE]: 'Active'
     }
-    const { filter } = this.props;
+    const { filter, selectedFilter } = this.props;
+
+
     return (
-      <div>
-          <a href="#" onClick={this.handleClick.bind(this)}>{filters[filter]}</a>
+      <div className={selectedFilter==filter?'filter selected':'filter'}>
+          <a href="#"  onClick={this.handleClick.bind(this)}>{filters[filter]}</a>
       </div>
 
     );

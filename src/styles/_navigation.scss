@@ -1,0 +1,39 @@
+.navigation {
+  min-height: 100%;
+  padding: 20px;
+  background-color: #243b47;
+  color: white;
+  flex-basis: 20;
+  -webkit-box-flex:0;
+  strong {
+    margin-top: 10px;
+    display: block;
+    color: #9ba8b5;
+    font-size: 0.7em;
+    font-weight: lighter;
+  }
+  h2,
+  h5 {
+    text-align: center;
+    margin: 10px auto;
+  }
+  h2 {
+    letter-spacing: 0.1em;
+  }
+  h5 {
+    font-weight: 100;
+    letter-spacing: 0.7em;
+  }
+  nav {
+    margin: 40px 0;
+  }
+  .navLink {
+    padding: 10px 0;
+    display: block;
+    text-decoration: none;
+    color: white;
+  }
+  .navLink:hover {
+    color: #ffca48;
+  }
+}

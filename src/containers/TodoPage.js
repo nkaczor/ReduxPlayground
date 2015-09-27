@@ -17,14 +17,12 @@ class TodoPage extends Component {
 
     return (
       <header>
-        <h1>Todo List</h1>
+        <h1>Hello, world.</h1>
         <AddTodoInput onSave={actions.addTodo} placeholder="Input something"/>
-        <FiltersList onChange={actions.setVisibilityFilter}
-        selectedFilter={this.props.visibilityFilter}/>
         <TodoList list={this.props.visibleTodos}
                   onDelete={actions.deleteTodo}
                   onComplete={actions.completeTodo}/>
-
+        <FiltersList onChange={actions.setVisibilityFilter}/>
 
       </header>
     );

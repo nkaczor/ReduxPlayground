@@ -5,7 +5,7 @@ export default class TodoList extends Component {
   render() {
     var {list, onDelete, onComplete} = this.props
     return (
-      <div>
+      <div className="todoList">
         {list.map((todoData, index) =>
           <TodoItem todoData={todoData} index={index} onDelete={onDelete} onComplete={onComplete}/>
         )}

@@ -1,5 +1,10 @@
 @import "buttons";
+@import "dialogs";
+@import "spinner";
 @import "navigation";
+@import "mixins/flexbox";
+@import "views/apiPage";
+@import "views/todoPage";
 *,
 *:after,
 *:before {
@@ -20,9 +25,9 @@ label {
   font-size: 1.1em;
 }
 input[type="text"] {
-  border-radius: 8px;
+  border-radius: 6px;
   display: block;
-  margin: 10px 0;
+  margin: 0px 0;
   width: 100%;
   font-family: sans-serif;
   font-size: 18px;
@@ -35,13 +40,9 @@ input[type="text"] {
 input[type="text"]:focus {
   outline: none;
 }
-.wraper {
-  display: flex;
-  align-items: stretch;
-}
+
 .main {
-  flex: 1 1 auto;
-  -webkit-box-flex: 1;
+  @include flex(1 1 auto);
   h1 {
     letter-spacing: 3px;
     font-size: 2.5em;
@@ -52,52 +53,9 @@ input[type="text"]:focus {
     padding: 20px;
     width: 80%;
     min-width: 700px;
-    .todoList {
-      margin: 10px 0 20px 0;
-      font-size: 0.9em;
-      min-height: 300px;
-      .todoHeader {
-        margin-bottom: 5px;
-        letter-spacing: 1px;
-        a {
-          float: right;
-        }
-      }
-      .todoText {
-        margin-bottom: 5px;
-      }
-      .todoCompleted {
-        font-style: italic;
-        color: #888;
-      }
-      .todoItem {
-        padding: 10px;
-        background-color: #ececec;
-      }
-      .todoItem:nth-child( odd ) {
-        background-color: #fafafa;
-      }
-    }
+
   }
-  .filters {
-    text-align: center;
-    margin-top:10px;
-  }
-  .filter {
-    min-width: 100px;
-    display: inline-block;
-    margin: 5px;
-    padding: 10px;
-    background-color: #9a9a9a;
-    border-radius: 2px;
-    a {
-      color: white;
-      text-decoration: none;
-    }
-  }
-  .selected {
-    background-color: #243b47;
-  }
+
   .footer {
     padding: 20px 30px;
     background-color: #345566;

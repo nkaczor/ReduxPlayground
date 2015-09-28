@@ -7,6 +7,10 @@ export const SELECT_REDDIT = 'SELECT_REDDIT';
 export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
 export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
+export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';
+
+// Resets the currently visible error message.
+
 /*
  * other constants
  */
@@ -31,6 +35,11 @@ export function receiveError(error){
   return {type: FETCH_POSTS_FAILURE, error }
 }
 
+export function resetErrorMessage() {
+  return {
+    type: RESET_ERROR_MESSAGE
+  };
+}
 
 export function fetchPosts(reddit) {
 

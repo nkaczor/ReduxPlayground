@@ -16,7 +16,7 @@ class TodoPage extends Component {
     const actions = bindActionCreators(TodoActions, dispatch);
 
     return (
-      <header>
+      <section className="todoPage">
         <h1>Todo List</h1>
         <AddTodoInput onSave={actions.addTodo} placeholder="Input something"/>
         <FiltersList onChange={actions.setVisibilityFilter}
@@ -26,7 +26,7 @@ class TodoPage extends Component {
                   onComplete={actions.completeTodo}/>
 
 
-      </header>
+      </section>
     );
   }
 }

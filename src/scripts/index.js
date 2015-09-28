@@ -21,6 +21,7 @@ let initialState = IMap({
     todos: IList(),
     visibilityFilter: SHOW_ALL}),
   apiPage:IMap({
+    errorMessage: '',
     selectedReddit: '',
     isFetching: false,
     posts: IList()

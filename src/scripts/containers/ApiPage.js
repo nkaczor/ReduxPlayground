@@ -2,46 +2,38 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Post from '../components/Post';
-import * as ApiActions from '../actions/apiActions'
+import RedditChooser from '../components/RedditChooser';
+import Spinner from '../components/Spinner';
+import * as ApiActions from '../actions/apiActions';
 
 class ApiPage extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      text: ''
-    };
-  }
-  handleSubmit(e) {
-    const text = e.target.value.trim();
-    if (e.which === 13) {
-      const { dispatch } = this.props;
-      const actions = bindActionCreators(ApiActions, dispatch);
-      actions.selectReddit(text);
-      actions.fetchPosts(text);
-    }
-  }
-  handleChange(e){
-    this.setState({
-      text: e.target.value
-    });
-  }
+
   render() {
 
+    const { dispatch, isFetching, posts, selectedReddit } = this.props;
+    const actions = bindActionCreators(ApiActions, dispatch);
+    function onSelect(text){
+        actions.selectReddit(text);
+        actions.fetchPosts(text);
+      }
+
+    function renderPosts(){
+      if(isFetching)
+        return <Spinner/>;
+      else
+        return(posts.map(post =>
+           <Post post={post}/>
+      ));
+    }
+
     return (
-      <header>
+      <section className="apiPage">
+        <h1>Reddit Api</h1>
+        <RedditChooser onSelect={onSelect}/>
+        <h2>Posts from <strong>{selectedReddit}</strong>:</h2>
+        {renderPosts()}
 
-      <input
-       type="text"
-       autoFocus="true"
-       value={this.state.text}
-       onChange={this.handleChange.bind(this)}
-       onKeyDown={this.handleSubmit.bind(this)} />
-    
-       {this.props.posts.map(post =>
-          <Post post={post}/>
-
-     )}
-      </header>
+      </section>
     );
   }
 }

@@ -1,0 +1,55 @@
+.apiPage{
+    min-height: 600px;
+   input[type="text"]{
+    display: inline-block;
+    width: 60%;
+    margin-right: 10px;
+  }
+  strong{
+    color: #ff5837;
+    letter-spacing: 2px;
+    font-size: 1.1em;
+  }
+
+  .post{
+
+    h3{
+      margin: 0px;
+      letter-spacing: 1px;
+    }
+    author{
+      color: #049642;
+      display: block;
+      font-style: italic;
+      margin: 5px 0;
+    }
+    p{
+      text-align: justify;
+      text-indent: 10px;
+      line-height: 120%;
+    }
+  }
+
+  .dlg a, .dlg h4{
+    display: block;
+    text-align: center;
+
+  }
+  .dlg a{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 0;
+    background-color: #55e793;
+    opacity: 0.8;
+    cursor:pointer;
+  }
+  .dlg a:nth-child(odd){
+    background-color: #cf85ee;
+  }
+  .dlg a:last-child{
+    border-radius:0 0 10px 10px;
+  }
+
+
+
+}

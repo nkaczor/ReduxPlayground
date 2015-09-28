@@ -1,0 +1,51 @@
+.todoPage{
+
+  .todoList {
+    margin: 10px 0 20px 0;
+    font-size: 0.9em;
+    min-height: 300px;
+    .todoHeader {
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+      a {
+        float: right;
+      }
+    }
+    .todoText {
+      margin-bottom: 5px;
+    }
+    .todoCompleted {
+      font-style: italic;
+      color: #888;
+    }
+    .todoItem {
+      padding: 10px;
+      background-color: #ececec;
+    }
+    .todoItem:nth-child( odd ) {
+      background-color: #fafafa;
+    }
+  }
+
+
+  .filters {
+    text-align: center;
+    margin-top:10px;
+  }
+  .filter {
+    min-width: 100px;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    background-color: #9a9a9a;
+    border-radius: 2px;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .selected {
+    background-color: #243b47;
+  }
+
+}

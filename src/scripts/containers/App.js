@@ -7,7 +7,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="wraper">
+      <div className="wrapper">
         <aside className="navigation">
         <h2>Hello Redux!</h2>
         <h5>EXAMPLES</h5>

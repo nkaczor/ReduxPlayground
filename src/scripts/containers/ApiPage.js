@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Post from '../components/Post';
 import RedditChooser from '../components/RedditChooser';
+import ErrorAlert from '../components/ErrorAlert';
 import Spinner from '../components/Spinner';
 import * as ApiActions from '../actions/apiActions';
 
@@ -10,7 +11,7 @@ class ApiPage extends Component {
 
   render() {
 
-    const { dispatch, isFetching, posts, selectedReddit } = this.props;
+    const { dispatch, isFetching, posts, errorMessage, selectedReddit } = this.props;
     const actions = bindActionCreators(ApiActions, dispatch);
     function onSelect(text){
         actions.selectReddit(text);
@@ -18,8 +19,11 @@ class ApiPage extends Component {
       }
 
     function renderPosts(){
+
       if(isFetching)
         return <Spinner/>;
+      else if(errorMessage.length>0){
+        return <ErrorAlert text={errorMessage}/>;}
       else
         return(posts.map(post =>
            <Post post={post}/>
@@ -44,7 +48,8 @@ function select(state) {
   return {
     selectedReddit: state.get('selectedReddit'),
     posts: state.get('posts'),
-    isFetching: state.get('isFetching')
+    isFetching: state.get('isFetching'),
+    errorMessage: state.get('errorMessage')
   };
 }
 export default connect(select)(ApiPage);

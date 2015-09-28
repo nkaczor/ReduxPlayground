@@ -48,9 +48,12 @@ export function fetchPosts(reddit) {
     dispatch(requestPosts(reddit));
 
     return fetch(`http://www.reddit.com/r/${reddit}.json`)
+
       .then(response => response.json())
       .then(json =>
-        dispatch(receivePosts(json))
-      );
+        { dispatch(resetErrorMessage());
+          dispatch(receivePosts(json));}
+      )
+      .catch(err => dispatch(receiveError(err.message)));
   };
 }

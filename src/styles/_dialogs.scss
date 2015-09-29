@@ -1,5 +1,5 @@
 .dlg{
-  
+
   min-width: 300px;
   position: fixed;
   top: 30%;
@@ -7,5 +7,6 @@
   background-color: #eee;
   border-radius: 10px;
   border: solid 1px #ddd;
+  z-index: 10;
 
 }

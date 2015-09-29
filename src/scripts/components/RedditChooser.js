@@ -36,6 +36,7 @@ export default class RedditChooser extends Component {
   }
   handleSelectFromList(reddit){
     this.props.onSelect(reddit)
+    this.navigateToAllPosts();
     this.setState({showList:false});
   }
   render() {

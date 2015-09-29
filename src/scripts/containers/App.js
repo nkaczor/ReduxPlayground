@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Router, {RouteHandler, Link} from 'react-router';
+import { Link} from 'react-router';
 
 
 
@@ -21,7 +21,7 @@ export default class App extends Component {
         </aside>
         <main className="main">
           <section className="container">
-            <RouteHandler/>
+            {this.props.children}
           </section>
           <footer className="footer">Bye bye! By Natalia</footer>
         </main>

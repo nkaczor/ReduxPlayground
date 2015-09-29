@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ListDialog from './ListDialog';
-
+import { History } from 'react-router';
 export default class RedditChooser extends Component {
   constructor(props, context) {
     super(props, context);
@@ -11,6 +11,11 @@ export default class RedditChooser extends Component {
     };
   }
 
+  navigateToAllPosts () {
+    console.log(this.context);
+    this.context.history.pushState(null, '/api');
+
+  }
   handleInputChange(e){
     this.setState({
       text: e.target.value
@@ -22,7 +27,9 @@ export default class RedditChooser extends Component {
     }
   }
   handleInputSave(){
-    this.props.onSelect(this.state.text)
+    this.props.onSelect(this.state.text);
+    this.navigateToAllPosts();
+
   }
   handleShowList(){
     this.setState({showList:true});
@@ -47,9 +54,10 @@ export default class RedditChooser extends Component {
          onChange={this.handleInputChange.bind(this)}
          onKeyDown={this.handleInputSubmit.bind(this)}
           />
-          <a className="btn btn-large btn-positive" onClick={this.handleInputSave.bind(this)}>Search</a>
+        <a className="btn btn-large btn-positive" onClick={this.handleInputSave.bind(this)}>Search</a>
           <a className="btn btn-large btn-additional" onClick={this.handleShowList.bind(this)}>Select from list</a>
       </div>
     );
   }
 }
+RedditChooser.contextTypes = { history: PropTypes.history }

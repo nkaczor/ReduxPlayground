@@ -1,13 +1,17 @@
 import 'babel-core/polyfill';
 
 import React from 'react';
-import Router, {DefaultRoute, Route} from 'react-router'
+import {IndexRoute, Route, Router} from 'react-router'
 import { Provider } from 'react-redux';
 import Immutable, {List as IList, Map as IMap} from 'immutable';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
+
 import configureStore from './store/configureStore';
 
 import App from './containers/App';
-import ApiPage from './containers/ApiPage'
+import ApiPage from './containers/ApiPage';
+import ApiPageAll from './containers/ApiPage/ApiPageAll';
+import ApiPageSingle from './containers/ApiPage/ApiPageSingle';
 import TodoPage from './containers/TodoPage';
 
 import VisibilityFilters from './constants/VisibilityFilters';
@@ -30,20 +34,21 @@ let initialState = IMap({
 
 
 const store = configureStore(initialState);
+const history = createBrowserHistory();
 
-
-var routes = (
-  <Route name="app" handler={App} path="/">
-    <DefaultRoute handler={TodoPage} />
-    <Route name="api" handler={ApiPage} />
-  </Route>
+React.render(
+  <Provider store={store}>
+    {() =>
+      <Router history={history} >
+        <Route component={App} path="/">
+          <IndexRoute component={TodoPage} />
+          <Route path="api" component={ApiPage} >
+            <IndexRoute component={ApiPageAll} />
+            <Route path="thread/:id" component={ApiPageSingle} />
+          </Route>
+        </Route>
+      </Router>
+    }
+  </Provider>,
+  document.getElementById('root')
 );
-
-Router.run(routes, function (Root) {
-  React.render(
-    <Provider store={store}>
-      {() => <Root />}
-    </Provider>,
-    document.getElementById('root')
-  );
-});

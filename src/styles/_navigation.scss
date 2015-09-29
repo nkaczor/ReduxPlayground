@@ -21,9 +21,17 @@
   h2 {
     letter-spacing: 0.1em;
   }
+  h2:hover{
+    color: #ff5837;
+    letter-spacing: 0.13em;
+  }
+
   h5 {
     font-weight: 100;
     letter-spacing: 0.7em;
+  }
+  h5:hover{
+    letter-spacing:0.8em;
   }
   nav {
     margin: 40px 0;

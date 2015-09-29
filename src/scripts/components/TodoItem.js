@@ -53,11 +53,11 @@ class TodoItem extends Component {
   render() {
     const {todoData, onDelete, onComplete,onMove, indexes} = this.props;
     const classes = indexes.length % 2 ? "todoItem todoItemOdd" : "todoItem";
-
+    const typeOfTask=indexes.length==1 ? 'TASK' : 'SUBTASK';
     return this.props.connectDragSource(this.props.connectDropTarget(
       <div className={classes}>
         <header className="todoHeader">
-          TASK {indexes[indexes.length-1]+1}
+          {typeOfTask} {indexes[indexes.length-1]+1}
 
           <a className="btn btn-danger btn-small" onClick={this.handleDelete.bind(this)}>Delete</a>
           <a className="btn btn-small" onClick={this.handleComplete.bind(this)}>Complete</a>

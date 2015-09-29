@@ -21,6 +21,10 @@ html,
 body {
   height: 100%;
 }
+a{
+  color: black;
+  text-decoration: none;
+}
 label {
   color: #243b47;
   font-size: 1.1em;
@@ -28,7 +32,7 @@ label {
 input[type="text"] {
   border-radius: 6px;
   display: block;
-  margin: 0px 0;
+  margin: 2px 0;
   width: 100%;
   font-family: sans-serif;
   font-size: 18px;

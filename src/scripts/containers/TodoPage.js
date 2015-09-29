@@ -23,7 +23,8 @@ class TodoPage extends Component {
         selectedFilter={this.props.visibilityFilter}/>
         <TodoList list={this.props.visibleTodos}
                   onDelete={actions.deleteTodo}
-                  onComplete={actions.completeTodo}/>
+                  onComplete={actions.completeTodo}
+                  onMove={actions.moveTodos}/>
 
 
       </section>
@@ -46,7 +47,7 @@ function selectTodos(todos, filter){
 function select(state) {
   state=state.get("todoPage");
   return {
-    visibleTodos: selectTodos(state.get("todos"), state.get("visibilityFilter")),
+    visibleTodos:selectTodos(state.get("todos"), state.get("visibilityFilter")),
     visibilityFilter: state.get("visibilityFilter")
   };
 }

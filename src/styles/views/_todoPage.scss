@@ -3,7 +3,7 @@
   .todoList {
     margin: 10px 0 20px 0;
     font-size: 0.9em;
-    min-height: 300px;
+    min-height: 400px;
     .todoHeader {
       margin-bottom: 5px;
       letter-spacing: 1px;
@@ -17,12 +17,14 @@
     .todoCompleted {
       font-style: italic;
       color: #888;
+      margin-bottom: 10px;
     }
     .todoItem {
-      padding: 10px;
+      margin:10px 0;
+      padding: 5px 10px;
       background-color: #ececec;
     }
-    .todoItem:nth-child( odd ) {
+    .todoItemOdd {
       background-color: #fafafa;
     }
   }

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ListDialog from './ListDialog';
-import { History } from 'react-router';
+
 export default class RedditChooser extends Component {
   constructor(props, context) {
     super(props, context);
@@ -12,7 +12,7 @@ export default class RedditChooser extends Component {
   }
 
   navigateToAllPosts () {
-    console.log(this.context);
+    console.log(this.context.history);
     this.context.history.pushState(null, '/api');
 
   }
